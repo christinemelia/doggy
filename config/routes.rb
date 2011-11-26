@@ -1,16 +1,29 @@
-Doggy::Application.routes.draw do
+
   
+  
+  
+  
+  Doggy::Application.routes.draw do
+    
+    
+   get 'admin' => 'admin#index'
+   controller :sessions do
+   get 'login' => :new
+   post 'login' => :create
+   delete 'logout' => :destroy
+   end
+    
+   resources :users
+   resources :orders
+   resources :line_items
+   resources :carts
+   get "store/index"
+   resources :products do
+   get :who_bought, on: :member
+   end
+   
+
  
-  get "store/index"
-  resources :products
-
-
-
-  get "say/hello"
-
-  get "say/goodbye"
-  
-  get "say/files"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -69,6 +82,6 @@ Doggy::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   # setting the store index to store 
-  root :to => 'store#index', :as => 'store'
+ root to: 'store#index', as: 'store'
   # ...
 end
