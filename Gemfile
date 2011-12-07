@@ -23,7 +23,7 @@ gem 'bcrypt-ruby'
 
 
 # for my attempted date picker 
-gem 'calendar_date_select'
+#gem 'calendar_date_select'
 
 
 # Gems used only for assets and not required
