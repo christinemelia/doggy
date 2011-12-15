@@ -5,7 +5,8 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
+gem 'pg',   '~> 0.12.0'
 
 
 gem 'bcrypt-ruby'
@@ -24,6 +25,20 @@ gem 'bcrypt-ruby'
 
 # for my attempted date picker 
 #gem 'calendar_date_select'
+
+
+# gems used for my location based services and maps
+#gem 'geokit'
+#gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git'
+#gem 'geopip'
+gem 'geokit-rails3'
+gem 'geocoder'
+
+
+
+
+#paypal payments tests
+gem 'activemerchant'
 
 
 # Gems used only for assets and not required

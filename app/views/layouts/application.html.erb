@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+		
 <title>Dog Grooming Services</title>
+
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
 
@@ -10,7 +12,7 @@
 </head>
 <body class="<%= controller.controller_name %>">
 <div id="banner">
-<%= image_tag("rails.png") %>
+
 <%= @page_title || "Services" %>
 </div>
 <div id="columns">
@@ -32,6 +34,7 @@
  <li><%= link_to 'Orders', orders_path %></li>
 <li><%= link_to 'Products', products_path %></li>
  <li><%= link_to 'Users', users_path %></li>
+<li> <%=link_to 'Locations', locations_path %>
 </ul>
  <%= button_to 'Logout', logout_path, method: :delete %>
  <% end %>
