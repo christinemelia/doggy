@@ -5,11 +5,16 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'sqlite3'
 
-gem 'pg',   '~> 0.12.0'
-
-
+# password encryption digest
 gem 'bcrypt-ruby'
+
+
+
+#gem to 
+gem 'paypal-recurring'
+
 
 
 # my files 
@@ -25,6 +30,8 @@ gem 'bcrypt-ruby'
 
 # for my attempted date picker 
 #gem 'calendar_date_select'
+#gem 'table_builder',  :git => 'git://github.com/p8/table_builder.git'
+#gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test'
 
 
 # gems used for my location based services and maps
@@ -37,8 +44,18 @@ gem 'geocoder'
 
 
 
+
+# social network integration gems 
+
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+
 #paypal payments tests
 gem 'activemerchant'
+gem 'haml'
+gem 'jquery-rails'
 
 
 # Gems used only for assets and not required

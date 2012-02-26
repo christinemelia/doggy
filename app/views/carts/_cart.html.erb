@@ -7,8 +7,20 @@
 <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 </tr>
 </table>
-<%= button_to "Checkout", new_order_path, method: :get %>
-<%= button_to 'Empty cart', cart, method: :delete,
+
+<%= button_to "Continue Shopping", store_url%>
+<%= button_to "Pay With Papal", store_url%>
+
+
+
+<!--creating a new link to my checkout button and path for a new order via express checkout payapal-->
+<%= button_to "Checkout", new_order_path,:method => :get %>
+
+
+
+
+
+<%= button_to 'Empty cart', cart, :method => :delete,
 confirm: 'Are you sure?' %>
 
 

@@ -1,6 +1,21 @@
 Doggy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+   # Force ActiveMerchant into test mode
+     #  config.after_initialize do
+     #    ActiveMerchant::Billing::Base.mode = :dvelopment
+      #   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      #       :login => "biz_1329172524_biz_api1.gmail.com",
+       #      :password => "1329172549",
+        #     :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AHB0rOml2zwZlwZA-JBZgInsZE-9 "
+       #    )
 
+   #  end
+   
+   
+ #   ActiveMerchant::Billing::Base.mode = :test
+ #     ::STANDARD_GATEWAY = ActiveMerchant::Billing::BogusGateway.new
+ #     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::BogusGateway.new
+  
   # The test environment is used exclusively to run your application's
   # test suite.  You never need to work with it otherwise.  Remember that
   # your test database is "scratch space" for the test suite and is wiped
@@ -36,4 +51,9 @@ Doggy::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  
+  
+  
+  
 end

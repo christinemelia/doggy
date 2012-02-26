@@ -1,19 +1,20 @@
 
-  
-  
-  
-  
   Doggy::Application.routes.draw do
-    
-    
-  
+   # didnt work :(  
+  #  resources :orders, :new => { :express => :get }
+   # resources :payment_notifications
 
    get 'admin' => 'admin#index'
    controller :sessions do
    get 'login' => :new
    post 'login' => :create
    delete 'logout' => :destroy
+   
+
+   
    end
+   
+   
     
    resources :locations  
    resources :users
@@ -25,7 +26,8 @@
    get :who_bought, :on =>:member
    end
    
-
+   #   get "paypal_express/checkout"
+   #   get "paypal_express/review"
  
 
   # The priority is based upon order of creation:

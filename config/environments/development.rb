@@ -1,4 +1,34 @@
 Doggy::Application.configure do
+  
+  # Force ActiveMerchant into test mode
+    #  config.after_initialize do
+      #  ActiveMerchant::Billing::Base.mode = :test
+      #  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+        #    :login => "biz_1329172524_biz_api1.gmail.com",
+        #    :password => "1329172549",
+         #   :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AHB0rOml2zwZlwZA-JBZgInsZE-9 "
+        #  )
+  
+   # end 
+    # ActiveMerchant::Billing::Base.mode = :test
+    # EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(
+   
+     #paypal_options = {
+      #  #   :login => "biz_1329172524_biz_api1.gmail.com",
+      #   :password => "1329172549",
+    #     :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AHB0rOml2zwZlwZA-JBZgInsZE-9"
+    #     )
+   #    end 
+    # }
+    # ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
+     #::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+   
+   
+    
+  
+   
+   
+   
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -27,4 +57,9 @@ Doggy::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  
+  
+  
+  
 end

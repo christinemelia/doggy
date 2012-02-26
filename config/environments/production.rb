@@ -1,6 +1,25 @@
 Doggy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+     # config.after_initialize do
+     #   ActiveMerchant::Billing::Base.mode = :production
+     #   ::GATEWAY = ActiveMerchant::Billing::BogusGateway.new
+    #  end
+  
+  
+  
+  
+  
+  # code not working !!!! keeping to display and show ammount of work put into payments ad gateways tru paypal api and expres gateways 
+    #  ActiveMerchant::Billing::Base.mode = :production
+    #     paypal_options = {
+    #       :login => "biz_1329172524_biz_api1.gmail.com",
+     #      :password => "1329172549",
+     #      :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AHB0rOml2zwZlwZA-JBZgInsZE-9"
+      #   }
+      #   ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
+      #   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+     # end
+  
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -57,4 +76,8 @@ Doggy::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  
+  
+  
 end
