@@ -29,8 +29,13 @@ order.line_items.map(&:total_price).sum
 end
 end
 
+xhtml.p "Date selection #{order.purchased_on}"
+end
+
 xhtml.p "Paid by #{order.pay_type}"
 end
+
+
 entry.author do |author|
 entry.name order.name
 entry.email order.email

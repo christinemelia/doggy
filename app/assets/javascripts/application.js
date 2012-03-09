@@ -8,6 +8,48 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
+//= require jquery-ui-timepicker-addon
 
 
 
+
+
+$(function ()
+      {
+	
+		 	
+	$('#order_grooming_date').datepicker(
+		{
+		
+		dateFormat: "yy-mm-dd"
+		
+	    }
+	);
+		
+  
+	
+	
+   	$('#order_grooming_time').timepicker(
+	{
+		ampm: true,
+		hourMin: 8,
+		hourMax: 16,
+		timeFormat: 'h:m'
+		
+	}
+	);
+		
+});
+	
+	
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	

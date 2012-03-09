@@ -35,8 +35,8 @@ gem 'paypal-recurring'
 # gem 'uglifier'
 # end
 
-
-
+#my new date picker in jquery
+gem 'jquery_datepicker'
 # for my attempted date picker 
 #gem 'calendar_date_select'
 #gem 'table_builder',  :git => 'git://github.com/p8/table_builder.git'
@@ -56,9 +56,11 @@ gem 'geocoder'
 
 # social network integration gems 
 
+
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem  'tweet-button'
 
 
 #paypal payments tests

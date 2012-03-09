@@ -4,12 +4,15 @@
 		
 <title>Dog Grooming Services</title>
 
-<%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "application" %>
+<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon.css", "application" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+
 
 <%= csrf_meta_tag %>
 
+
 </head>
+
 <body class="<%= controller.controller_name %>">
 <div id="banner">
 
@@ -29,16 +32,31 @@
 <li><a href="http://www..../contact">Contact</a></li>
 </ul>
 
+
+
+
  <% if session[:user_id] %>
  <ul>
  <li><%= link_to 'Orders', orders_path %></li>
 <li><%= link_to 'Products', products_path %></li>
  <li><%= link_to 'Users', users_path %></li>
 <li> <%=link_to 'Locations', locations_path %></li>
+<li><%= facebook_like %></li>
+
+<li class="tweeter_block">
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:3000/admin" data-text="Doggy Grooming">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</li></ul>
 
 
-</ul>
+
+	
  <%= button_to 'Logout', logout_path, method: :delete %>
+
+ <% else %> 
+
+<%= link_to 'Login', new_user_path , action: :new %>
+ 
  <% end %>
 </div>
 <div id="main">

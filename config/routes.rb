@@ -1,8 +1,13 @@
 
   Doggy::Application.routes.draw do
+  
+
    # didnt work :(  
   #  resources :orders, :new => { :express => :get }
    # resources :payment_notifications
+   match '/auth/:provider/callback' => 'authentications#create'
+
+   
 
    get 'admin' => 'admin#index'
    controller :sessions do
@@ -15,7 +20,7 @@
    end
    
    
-    
+  resources :authentications
    resources :locations  
    resources :users
    resources :orders

@@ -32,6 +32,20 @@
 <%= f.select :pay_type, Order::PAYMENT_TYPES,
  prompt: 'Select a payment method' %>
 </div>
+
+
+<div class-= "field">
+<%= f.label :Dog_Grooming_Date %><br />
+<%= f.text_field :grooming_date %>
+</div>
+	
+	
+<div class-= "field">
+ <%= f.label :Dog_Grooming_Time %><br />
+ <%= f.text_field :grooming_time %>
+</div>
+
+
 <div class="actions">
  <%= f.submit 'Checkout' %>
 </div>

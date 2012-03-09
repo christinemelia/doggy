@@ -5,6 +5,8 @@
 <th>Address</th>
 <th>Email</th>
 <th>Pay type</th>
+<th>Grooming Date</th>
+<th>Grooming Time</th>
 <th></th>
 <th></th>
 <th></th>
@@ -15,6 +17,9 @@
 <td><%= order.address %></td>
 <td><%= order.email %></td>
 <td><%= order.pay_type %></td>
+<td><%= order.grooming_date %></td>
+<td><%= order.grooming_time %></td>
+
 <td><%= link_to 'Show', order %></td>
 <td><%= link_to 'Edit', edit_order_path(order) %></td>
 <td><%= link_to 'Destroy', order, confirm: 'Are you sure?',

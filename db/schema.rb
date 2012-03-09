@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220222358) do
+ActiveRecord::Schema.define(:version => 20120303002920) do
+
+  create_table "appointments", :force => true do |t|
+    t.string   "date"
+    t.string   "hour"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at"
@@ -44,6 +59,9 @@ ActiveRecord::Schema.define(:version => 20120220222358) do
     t.datetime "updated_at"
     t.string   "express_token"
     t.string   "express_payer_id"
+    t.string   "purchased_on"
+    t.string   "grooming_date"
+    t.string   "grooming_time"
   end
 
   create_table "products", :force => true do |t|

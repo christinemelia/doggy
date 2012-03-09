@@ -31,6 +31,9 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
+  
+  
+  
 
   # GET /users/1/edit
   def edit
@@ -43,8 +46,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url,
-          notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to store_url,
+          notice: "User #{@user.name}  signup successfully created." }
         format.json { render json: @user,
           status: :created, location: @user }
       else
@@ -56,6 +59,8 @@ class UsersController < ApplicationController
   end
   
   
+  
+
 
   # PUT /users/1
   # PUT /users/1.json
