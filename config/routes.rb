@@ -5,7 +5,7 @@
    # didnt work :(  
   #  resources :orders, :new => { :express => :get }
    # resources :payment_notifications
-   match '/auth/:provider/callback' => 'authentications#create'
+   #match '/auth/:provider/callback' => 'authentications#create'
 
    
 
