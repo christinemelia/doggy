@@ -87,6 +87,13 @@ gem 'uglifier'
 end
 
 
+
+
+# gem for thin server when deployed to heroku for production only 
+group :production do
+  gem 'thin'
+end
+
 gem 'jquery-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
