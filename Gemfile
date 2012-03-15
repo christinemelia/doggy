@@ -51,7 +51,7 @@ gem 'geokit-rails3'
 gem 'geocoder'
 
 
-
+gem 'taps'
 
 
 # social network integration gems 
