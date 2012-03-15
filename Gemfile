@@ -7,14 +7,15 @@ gem 'rails', '3.1.1'
 
 
 
-
-
-group :development, :test do
-  gem 'sqlite3'
-end
 group :production do
   gem 'pg'
 end
+group :development, :test do
+  gem 'sqlite3'
+  gem 'taps'
+end
+
+
 
 # password encryption digest
 gem 'bcrypt-ruby'
@@ -51,7 +52,6 @@ gem 'geokit-rails3'
 gem 'geocoder'
 
 
-gem 'taps'
 
 
 # social network integration gems 
