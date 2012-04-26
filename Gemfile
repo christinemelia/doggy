@@ -64,8 +64,9 @@ gem  'tweet-button'
 
 
 #paypal payments tests
-gem 'activemerchant'
-gem 'haml'
+
+gem 'activemerchant', :require => 'active_merchant'
+
 gem 'jquery-rails'
 
 

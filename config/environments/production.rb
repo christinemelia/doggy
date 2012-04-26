@@ -77,7 +77,16 @@ Doggy::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+
+    :login => "christ_1335351587_biz_api1.gmail.com",
+    :password => "1335351625",
+    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AGcqIRyzmQoYJ.LYnbgZ.hyBt7ZA "
+  )
   
+end
   
   
 end

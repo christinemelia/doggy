@@ -7,10 +7,10 @@
 * to create a new file per style scope.
 */
 #banner {
-  background: #01DFD7;
+  background-color: #333;
   padding: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
+  font: small-caps 40px/40px "Helvetica";
   color: #0404B4;
   text-align: center; }
   #banner img {

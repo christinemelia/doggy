@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303002920) do
+ActiveRecord::Schema.define(:version => 20120425223625) do
 
   create_table "appointments", :force => true do |t|
     t.string   "date"
@@ -50,18 +50,36 @@ ActiveRecord::Schema.define(:version => 20120303002920) do
     t.datetime "updated_at"
   end
 
+  create_table "order_transactions", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "action"
+    t.integer  "ammount"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "name"
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
+    t.string   "grooming_time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "express_token"
     t.string   "express_payer_id"
     t.string   "purchased_on"
+    t.integer  "cart_id"
+    t.string   "ip_address"
+    t.string   "card_type"
+    t.date     "card_expires_on"
     t.string   "grooming_date"
-    t.string   "grooming_time"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "products", :force => true do |t|

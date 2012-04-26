@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @order.name %>
+  <b>First Name:</b>
+  <%= @order.first_name %>
 </p>
+
+
+<p>
+  <b>Last Name:</b>
+  <%= @order.last_name %>
+</p>
+
+
 
 <p>
   <b>Address:</b>
@@ -14,6 +22,35 @@
   <b>Email:</b>
   <%= @order.email %>
 </p>
+
+<p>
+<b>Payment Type:</b>
+<%= @order.pay_type %>
+</p>
+
+<p>
+<b>Card Type:</b>
+<%= @order.card_type%>
+</p>
+
+<p>
+<b>Card Number:</b>
+<%= @order.card_number%>
+</p>
+
+<p>
+<b>Card verification:</b>
+<%= @order.card_verification%>
+</p>
+
+
+<p>
+<b>Card Expiration Date:</b>
+<%= @order.card_expires_on%>
+</p>
+
+
+
 
 <p>
   <b>Date for Grooming:</b>
@@ -27,10 +64,7 @@
 
 
 
-<p>
-  <b>Pay type:</b>
-  <%= @order.pay_type %>
-</p>
+
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

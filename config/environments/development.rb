@@ -1,5 +1,10 @@
 Doggy::Application.configure do
   
+  
+  
+ 
+  
+  
   # Force ActiveMerchant into test mode
     #  config.after_initialize do
       #  ActiveMerchant::Billing::Base.mode = :test
@@ -58,8 +63,23 @@ Doggy::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  config.gem "activemerchant", :lib => "active_merchant"
   
+  # paypal active merchant config to test mode environment development 
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+
+    :login => "christ_1335351587_biz_api1.gmail.com",
+    :password => "1335351625",
+    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AGcqIRyzmQoYJ.LYnbgZ.hyBt7ZA "
+  )
   
-  
+ 
+ end 
+
+ 
+ 
+ 
   
 end

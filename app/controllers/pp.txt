@@ -83,7 +83,35 @@ class PaypalExpressController < ApplicationController
     end
 end
 
-
+def create
+        @order = Order.new(params[:order])
+        @order.add_line_items_from_cart(current_cart)
+        @order.ip_address = request.remote_ip
+        
+        
+     if @order.save
+        respond_to do |format|
+         Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil
+          format.html { redirect_to(store_url, :notice => 'Thank you for your order.') }
+          format.xml  { render :xml => @order, :status => :created, :location => @order }
+      if @order.purchase
+         
+          render :action => "success"
+           
+           else
+           
+          render :action => "failure"
+      end
+           
+           else
+         
+          format.xml  { render :xml => @order.errors,:status => :unprocessable_entity }
+        
+         render :action => "new"
+  end
+     end 
+ end
 
 
 

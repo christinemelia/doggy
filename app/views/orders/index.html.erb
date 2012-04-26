@@ -1,22 +1,30 @@
 <h1>Listing orders</h1>
 <table>
 <tr>
-<th>Name</th>
+<th>First Name</th>
+<th>Last Name</th>
 <th>Address</th>
 <th>Email</th>
 <th>Pay type</th>
+<th>Card type</th>
+<th>Card Number</th>
+<th>Card Verification</th>
+<th>Card Expires On</th>
 <th>Grooming Date</th>
 <th>Grooming Time</th>
-<th></th>
-<th></th>
-<th></th>
+
 </tr>
 <% @orders.each do |order| %>
 <tr>
-<td><%= order.name %></td>
+<td><%= order.first_name %></td>
+<td><%= order.last_name %></td>
 <td><%= order.address %></td>
 <td><%= order.email %></td>
 <td><%= order.pay_type %></td>
+<td><%= order.card_type %></td>
+<td><%= order.card_number %></td>
+<td><%= order.card_verification %></td>
+<td><%= order.card_expires_on %></td>
 <td><%= order.grooming_date %></td>
 <td><%= order.grooming_time %></td>
 

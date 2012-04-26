@@ -53,7 +53,10 @@ Doggy::Application.configure do
   config.active_support.deprecation = :stderr
   
   
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::BogusGateway.new
   
-  
+  end
   
 end

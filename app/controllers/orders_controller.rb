@@ -1,11 +1,15 @@
   class OrdersController < ApplicationController
      
+     
+     
+     
       skip_before_filter :authorize, only: [:new, :create]
      # GET /orders
      # GET /orders.xml
+     
+     
      def index
-       @orders = Order.paginate :page=>params[:page], :order=>'created_at desc',
-         :per_page => 10
+       @orders = Order.paginate :page=>params[:page], :order=>'created_at desc',:per_page => 10
 
        respond_to do |format|
          format.html # index.html.erb
@@ -13,16 +17,20 @@
        end
      end
 
+
+
      # GET /orders/1
      # GET /orders/1.xml
      def show
        @order = Order.find(params[:id])
-
        respond_to do |format|
          format.html # show.html.erb
          format.xml  { render :xml => @order }
        end
      end
+     
+     
+     
 
      # GET /orders/new
      # GET /orders/new.xml
@@ -34,39 +42,121 @@
        end
 
        @order = Order.new
-
        respond_to do |format|
          format.html # new.html.erb
          format.xml  { render :xml => @order }
        end
      end
 
+
+
+
      # GET /orders/1/edit
      def edit
        @order = Order.find(params[:id])
      end
 
+
+
+
+    
+      # @order = Order.new(params[:order])
+     #  @order.add_line_items_from_cart(current_cart)
+
+     #  respond_to do |format|
+     #  if @order.save
+     #   Cart.destroy(session[:cart_id])
+      #session[:cart_id] = nil
+
+     #format.html { redirect_to store_url, notice:
+     #  'Thank you for your order.' }
+
+
+
+
+     #  format.json { render json: @order, status: :created,
+     #  location: @order }
+     #  else
+     #  @cart = current_cart
+      # format.html { render action: "new" }
+      # format.json { render json: @order.errors,
+      # status: :unprocessable_entity }
+     #      end
+     ##    end
+     #  end
+
+
+   
      # POST /orders
      # POST /orders.xml
      def create
-       @order = Order.new(params[:order])
-       @order.add_line_items_from_cart(current_cart)
+       @order = current_cart.build_order(params[:order])
+        @order.add_line_items_from_cart(current_cart)
+       @order.ip_address = request.remote_ip
 
-       respond_to do |format|
-         if @order.save
-           Cart.destroy(session[:cart_id])
-           session[:cart_id] = nil
-           format.html { redirect_to(store_url, :notice => 
-             'Thank you for your order.') }
-           format.xml  { render :xml => @order, :status => :created,
-             :location => @order }
-         else
-           format.html { render :action => "new" }
-           format.xml  { render :xml => @order.errors,
-             :status => :unprocessable_entity }
-         end
-       end
-     end
+        respond_to do |format|
+          if @order.save
+            Cart.destroy(session[:cart_id])
+            session[:cart_id] = nil
+            format.html { redirect_to(store_url, :notice => 
+              'Thank you for your order.') }
+            format.xml  { render :xml => @order, :status => :created,
+              :location => @order }
+              
+              if @order.purchase
+                 format.html{render :action => "success"}
+                else
+                 format.html {  render :action => "failure"}
+                end
+           else   
+                @cart = current_cart
+                 format.html { render action: "new" }
+                 format.json { render json: @order.errors,
+                  status: :unprocessable_entity }
+                
+ 
+     end 
+  end 
+        end 
+       
+          
+
+
+     
+
+     
+           
+           
+            
+       
+     
+     
+     
+     
+     
+  #     def create
+   #      @order = current_cart.build_order(params[:order])
+    #     @order.ip_address = request.remote_ip
+    #     if @order.save
+    #       if @order.purchase
+       #      render :action => "success"
+          # else
+            # render :action => "failure"
+          # end
+        # else
+          # render :action => 'new'
+        # end
+      # end
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
 
      # PUT /orders/1
      # PUT /orders/1.xml
@@ -95,7 +185,9 @@
          format.xml  { head :ok }
        end
      end
-   end
+  end 
+
+
 
 
 
@@ -243,4 +335,4 @@
   # PUT /orders/1
   # PUT /orders/1.json
  
-  
+    
