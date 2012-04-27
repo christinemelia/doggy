@@ -6,4 +6,11 @@ class Location < ActiveRecord::Base
  end
 
 
+
+
+
+ 
 # reference ryan bates geokit for rails railscast 
+
+
+

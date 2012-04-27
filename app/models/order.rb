@@ -38,8 +38,8 @@ class Order < ActiveRecord::Base
           :type               => card_type,
           :number             => card_number,
           :verification_value => card_verification,
-          :month              => card_expires_on,
-          :year               => card_expires_on,
+          :month              => card_expires_on.month,
+          :year               => card_expires_on.year,
           :first_name         => first_name,
           :last_name          => last_name
         )
@@ -48,7 +48,7 @@ class Order < ActiveRecord::Base
        def validate_card
          unless credit_card.valid?
           credit_card.errors.full_messages.each do |message|
-            errors.add_to_base message
+            errors.add(:base, message)
             end
            end
         end
@@ -58,19 +58,19 @@ class Order < ActiveRecord::Base
        
 
 
-  def purchase
-      response =GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
-      transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
+  def purchase(cart)
+      response =GATEWAY.purchase(price_in_cents(cart), credit_card, purchase_options)
+      transactions.create!(:action => "purchase", :ammount => price_in_cents(cart), :response => response)
        cart.update_attribute(:purchased_on, Time.now) if response.success?
       response.success?      
 end
  
-def total_price
-    line_items.to_a.sum {|item| item.total_price}
+def total_price(cart)
+    cart.total_price
   end
 
-  def price_in_cents
-    (total_price*100).round
+  def price_in_cents(cart)
+    (total_price(cart)*100).round
   end
 
 

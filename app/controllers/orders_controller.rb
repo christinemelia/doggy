@@ -96,18 +96,20 @@
 
         respond_to do |format|
           if @order.save
-            Cart.destroy(session[:cart_id])
-            session[:cart_id] = nil
-            format.html { redirect_to(store_url, :notice => 
-              'Thank you for your order.') }
+            if @order.purchase(current_cart)
+               format.html{render :action => "success"}
+               Cart.destroy(session[:cart_id])
+               session[:cart_id] = nil
+              else
+               format.html {  render :text => "failure"}
+              end
+            
+#            format.html { redirect_to(store_url, :notice => 
+#              'Thank you for your order.') }
             format.xml  { render :xml => @order, :status => :created,
               :location => @order }
               
-              if @order.purchase
-                 format.html{render :action => "success"}
-                else
-                 format.html {  render :action => "failure"}
-                end
+
            else   
                 @cart = current_cart
                  format.html { render action: "new" }

@@ -179,7 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemerchant (~> 1.21.0)
+  activemerchant
   bcrypt-ruby
   coffee-rails (~> 3.1.0.rc)
   geocoder

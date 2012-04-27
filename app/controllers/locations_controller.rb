@@ -1,12 +1,16 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
+    skip_before_filter :authorize, only: [:destroy,:edit,:update]
   
   
   
   def index
     if params[:search].present?
-      @locations = Location.near(params[:search], 50, :order => :distance)
+      @locations = Location.near(params[:search], 50, {:order => :distance, :units =>:km})
+      
+      
+    
     else
       @locations = Location.all
     end
