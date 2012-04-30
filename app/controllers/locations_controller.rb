@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
-    skip_before_filter :authorize, only: [:destroy,:edit,:update]
+    skip_before_filter :authorize, only: [:destroy,:edit,:update,]
   
   
   

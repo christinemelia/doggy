@@ -2,7 +2,7 @@
 <html>
 <head>
 		
-<title>Dog Grooming Services</title>
+<title>Doggy Grooming Store</title>
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon", "application" %>
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
@@ -15,21 +15,25 @@
 
 <body class="<%= controller.controller_name %>">
 <div id="banner">
+<%= image_tag ("logo.png") %>
+<%= @page_title || "Dog Grooming Services" %>
 
-<%= @page_title || "Services" %>
+
 </div>
 <div id="columns">
 <div id="side">
+	
 <% if @cart %>
 <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
 <%= render @cart %>
 <% end %>
 <% end %>
 <ul>
-<li><a href="http://www....">Home</a></li>
-<li><a href="http://www..../faq">Questions</a></li>
-<li><a href="http://www..../news">News</a></li>
-<li><a href="http://www..../contact">Contact</a></li>
+
+<li><a href="http://www..../contact">Contact DoggyGrooming</a></li>
+<li><a href="http://www..../contact">About DoggyGroming</a></li>
+<li> <%=link_to 'Locations', locations_path %></li>
+<li><%= facebook_like %></li>
 </ul>
 
 
@@ -40,8 +44,8 @@
  <li><%= link_to 'Orders', orders_path %></li>
 <li><%= link_to 'Products', products_path %></li>
  <li><%= link_to 'Users', users_path %></li>
-<li> <%=link_to 'Locations', locations_path %></li>
-<li><%= facebook_like %></li>
+
+
 
 <li class="tweeter_block">
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:3000/admin" data-text="Doggy Grooming">Tweet</a>

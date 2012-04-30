@@ -9,7 +9,11 @@
 	text-align:center}
 	
 #banner 
-img{float:left}
+img{float:left;
+	width: 5.0em;
+	height: 1.3em;
+	
+	}
 
 #notice
 {color:#000 !important;

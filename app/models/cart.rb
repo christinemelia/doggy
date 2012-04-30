@@ -1,4 +1,10 @@
 class Cart < ActiveRecord::Base
+  
+  #christine melia x03247376 references agile web development with rails v 4 
+  # has many association used to depend line items with cart session 
+  # a cart has many associated line items. These are linked to the cart because each line item contains a reference to its cart’s id.
+  # add_product() method in my Cart, one that checks whether my list of items already includes the product im adding; if it does, it
+  # bumps the quantity, and if it doesn’t, it builds a new LineItem
   has_many :line_items, dependent: :destroy
   has_one :order
 
@@ -12,6 +18,8 @@ class Cart < ActiveRecord::Base
     else
       current_item = line_items.build(product_id: product_id)
     end
+    #checking logs on irb for my cart 
+    logger.info("Cart.add_product ====> #{current_item.inspect}")
     current_item
   end
 
@@ -20,9 +28,10 @@ class Cart < ActiveRecord::Base
       
 
 
-
+#re written definition as my cart was passing nil total for active merchnt gateway 
+#mapping total price def and injecting to an array of sum funtion and total price tp 
    def total_price
-    line_items.to_a.sum { |item| item.total_price }
+     line_items.map(&:total_price).inject { |sum, tp| sum + tp } || 0
    end 
   
   
@@ -65,7 +74,3 @@ class Cart < ActiveRecord::Base
 
 end
 
-# has many association used to depend line items with cart session 
-# a cart has many associated line items. These are linked to the cart because each line item contains a reference to its cart’s id.
-# add_product() method in my Cart, one that checks whether my list of items already includes the product im adding; if it does, it
-# bumps the quantity, and if it doesn’t, it builds a new LineItem

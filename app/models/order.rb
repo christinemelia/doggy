@@ -1,38 +1,30 @@
 class Order < ActiveRecord::Base
+  
+  #written by christine melia , reference to ryan bates railscast 145 
   PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
  
-  # ...
+  # ...associations 
   belongs_to :cart
   has_many :line_items, :dependent => :destroy
   has_many :transactions, :class_name => "OrderTransaction"
   
-  
+  #stored in memeory only for security reasons donnot write to db 
    attr_accessor :card_number, :card_verification, :card_expires_on
-   # attr_accessible :amount
+   
   
-  
+  #validations 
   validates :first_name,:last_name, :address, :email,:pay_type, :grooming_date, :grooming_time, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
-    
   
- 
- 
- 
-    #  def validate_card
-    #    unless credit_card.valid?
-    #      credit_card.errors.full_messages.each do |message|
-    #        errors.add_to_base message
-    #        end
-   #       end
-  #      end
-
-   
 
   # Credit Card Validation
   validate :validate_card, :on =>:create
   # CC validation method taken from Ryan Bate's Railscast #145
     # checks the CC info and adds any error messages to the order model's error messages.
     
+    
+    
+    #part of active merchnt gems functionality 
      def credit_card
         @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
           :type               => card_type,
@@ -45,32 +37,29 @@ class Order < ActiveRecord::Base
         )
      end
 
-       def validate_card
-         unless credit_card.valid?
-          credit_card.errors.full_messages.each do |message|
+     def validate_card
+       unless credit_card.valid?
+         credit_card.errors.full_messages.each do |message|
             errors.add(:base, message)
-            end
-           end
-        end
+         end
+       end
+     end
     
-    
-
-       
-
-
-  def purchase(cart)
-      response =GATEWAY.purchase(price_in_cents(cart), credit_card, purchase_options)
-      transactions.create!(:action => "purchase", :ammount => price_in_cents(cart), :response => response)
-       cart.update_attribute(:purchased_on, Time.now) if response.success?
-      response.success?      
-end
+  
+# active merchant fnctionality re written to integrate with my application 
+  def purchase
+    response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
+    transactions.create!(:action => "purchase", :ammount => price_in_cents, :response => response)
+    #cart.update_attribute(:purchased_on, Time.now) if response.success?
+    response.success?      
+  end
  
-def total_price(cart)
+  def total_price
     cart.total_price
   end
 
-  def price_in_cents(cart)
-    (total_price(cart)*100).round
+  def price_in_cents
+    (total_price*100).round
   end
 
 
@@ -83,16 +72,14 @@ def total_price(cart)
 end 
 
        
-       
- 
-   
+  #private method only used for gateway 
  
   private
     def purchase_options
       {
         :ip => ip_address,
         :billing_address => {
-          :name     => "Ryan Bates",
+          :name     => "christine melia",
           :address1 => "123 Main St.",
           :city     => "New York",
           :state    => "NY",
@@ -101,24 +88,16 @@ end
         }
       }
     end
-
-   
-
-   
   end
 
 
 
 
 
+#unworking code for paypal to follow 
 
 # class Order < ActiveRecord::Base
-#   has_many :transactions, :class_name => "PaymentTransaction"
-  
-  
-  
- 
-  
+#   has_many :transactions, :class_name => "PaymentTransaction"  
   
  #  def purchase
       # response = process_purchase
@@ -130,10 +109,6 @@ end
  #    def price_in_cents
  #      (cart.total_price*100).round
   #   end
-  
-  
-  
-  
   
 
 #   def process_purchase

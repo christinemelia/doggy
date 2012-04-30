@@ -91,13 +91,16 @@
      # POST /orders.xml
      def create
        @order = current_cart.build_order(params[:order])
-        @order.add_line_items_from_cart(current_cart)
+       ##@order.add_line_items_from_cart(current_cart)
        @order.ip_address = request.remote_ip
 
         respond_to do |format|
           if @order.save
-            if @order.purchase(current_cart)
-               format.html{render :action => "success"}
+            if @order.purchase
+              
+               
+               format.html { redirect_to(store_url, :notice => 
+               'Thank you your order has been paid for successfully .') }
                Cart.destroy(session[:cart_id])
                session[:cart_id] = nil
               else
