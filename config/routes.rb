@@ -1,34 +1,39 @@
 
   Doggy::Application.routes.draw do
-  
+    
+    devise_for :users
+    resources :users
+
+    # add another lines as you need...
+   
 
    # didnt work :(  
-  #  resources :orders, :new => { :express => :get }
+   #  resources :orders, :new => { :express => :get }
    # resources :payment_notifications
    #match '/auth/:provider/callback' => 'authentications#create'
 
    
 
-   get 'admin' => 'admin#index'
-   controller :sessions do
-   get 'login' => :new
-   post 'login' => :create
-   delete 'logout' => :destroy
+   # get 'admin' => 'admin#index'
+  #controller :sessions do
+  #  get 'login' => :new
+  #  post 'login' => :create
+  #  delete 'logout' => :destroy
+  #end
    
 
+
    
-   end
    
-   
-  resources :authentications
+   resources :authentications
    resources :locations  
-   resources :users
+   #ß devise_for :users 
    resources :orders
    resources :line_items
    resources :carts
    get "store/index"
    resources :products do
-   get :who_bought, :on =>:member
+     get :who_bought, :on =>:member
    end
    
    #   get "paypal_express/checkout"

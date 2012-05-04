@@ -68,7 +68,11 @@ gem  'tweet-button'
 gem 'activemerchant', :require => 'active_merchant'
 
 gem 'jquery-rails'
+ 
+gem  'cancan' 
 
+gem 'devise'
+#:git => 'git://github.com/plataformatec/devise.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

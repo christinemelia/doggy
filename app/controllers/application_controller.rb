@@ -1,8 +1,14 @@
 # writen by christine melia reference to excerps from Agile web development with rails 4 th edition 
 
 class ApplicationController < ActionController::Base
-  before_filter :authorize
-  protect_from_forgery
+  
+  
+  
+  before_filter :authenticate_user!
+  # Access Current User
+  
+  #before_filter :authorize
+ # protect_from_forgery
   
 
   
@@ -23,7 +29,7 @@ class ApplicationController < ActionController::Base
 
     def authorize
       unless User.find_by_id(session[:user_id])
-        redirect_to login_url, :notice => "Please log in"
+        redirect_to new_session_url, :notice => "Please log in"
       end
     end
 end

@@ -13,21 +13,35 @@ prohibited this user from being saved:</h2>
 <% end %>
 <fieldset>
 <legend>Enter User Details</legend>
-<div>
-<%= f.label :name %>:
-<%= f.text_field :name, size: 40 %>
-</div>
-<div>
-<%= f.label :password, 'Password' %>:
-<%= f.password_field :password, size: 40 %>
-</div>
-<div>
-<%= f.label :password_confirmation, 'Confirm' %>:
-<%= f.password_field :password_confirmation, size: 40 %>
-</div>
-<div>
+
+	<div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.text_field :email %>
+	  </div>
+	  
+	  <% if @current_method == "new" %>
+	    <div class="field">
+	      <%= f.label :password %><br />
+	      <%= f.password_field :password %>
+	    </div>
+	    <div class="field">
+	      <%= f.label :password_confirmation %><br />
+	      <%= f.password_field :password_confirmation %>
+	    </div>
+	
+	<% end %>
+	  <% for role in Role.find(:all) %>
+	    <div>
+	      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+	      <%= role.name %>
+	    </div>
+	  <% end %>
+
 <%= f.submit %>
 </div>
 </fieldset>
 <% end %>
 </div>
+
+
+

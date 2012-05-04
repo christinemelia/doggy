@@ -3,12 +3,18 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.order(:name)
+    
+    #added this line in devise 
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
     end
   end
+  
+  
+  
 
   # GET /users/1
   # GET /users/1.json
@@ -25,6 +31,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    #added this line with devise 
+    @current_method = "new"
 
     respond_to do |format|
       format.html # new.html.erb
