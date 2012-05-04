@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
    
   
   #validations 
-  validates :first_name,:last_name, :address, :email,:pay_type, :grooming_date, :grooming_time, :presence => true
+  validates :first_name,:last_name, :address, :email, :pay_type, :grooming_date, :grooming_time, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
   
 

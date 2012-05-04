@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503085108) do
+ActiveRecord::Schema.define(:version => 20120504144303) do
 
   create_table "appointments", :force => true do |t|
     t.string   "date"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20120503085108) do
     t.string   "grooming_date"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "cart_id"
   end
 
   create_table "payment_notifications", :force => true do |t|

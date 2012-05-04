@@ -27,7 +27,7 @@
    
    resources :authentications
    resources :locations  
-   #ß devise_for :users 
+   
    resources :orders
    resources :line_items
    resources :carts
