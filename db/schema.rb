@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502125747) do
+ActiveRecord::Schema.define(:version => 20120503085108) do
 
   create_table "appointments", :force => true do |t|
     t.string   "date"
@@ -64,22 +64,31 @@ ActiveRecord::Schema.define(:version => 20120502125747) do
 
   create_table "orders", :force => true do |t|
     t.string   "name"
+    t.string   "lastname"
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
-    t.string   "grooming_time"
+    t.string   "ip_address"
+    t.string   "card_type"
+    t.date     "card_expires_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "express_token"
     t.string   "express_payer_id"
     t.string   "purchased_on"
-    t.integer  "cart_id"
-    t.string   "ip_address"
-    t.string   "card_type"
-    t.date     "card_expires_on"
+    t.string   "grooming_time"
     t.string   "grooming_date"
     t.string   "first_name"
     t.string   "last_name"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "cart_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", :force => true do |t|
@@ -95,6 +104,11 @@ ActiveRecord::Schema.define(:version => 20120502125747) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
