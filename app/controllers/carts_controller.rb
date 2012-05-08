@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
-    skip_before_filter :authorize, only:[:create, :update, :destroy]
+    #skip_before_filter :authorize, only:[:create, :update, :destroy]
     
-#before_filter :authenticate_user!
+before_filter :authenticate_user!
+
+ load_and_authorize_resource
   # GET /carts
   # GET /carts.json
   def index

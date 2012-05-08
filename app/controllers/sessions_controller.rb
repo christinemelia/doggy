@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   
   #before_filter :authenticate_user!  
   
-  skip_before_filter :authorize
+ # skip_before_filter :authorize
   def new
   end
   
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
  
 
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by_name(params[:name])
     if user and user.authenticate(params[:password])
      session[:user_id] = user.id
       redirect_to admin_url

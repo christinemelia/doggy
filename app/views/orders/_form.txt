@@ -35,6 +35,15 @@
 
 
 
+<!--<p class="notice">-->
+<!--<%= notice %></p>-->
+
+	
+ <!--<%= button_to 'Logout', logout_path, method: :delete %>-->
+
+ <!--<% else %> -->
+
+<!--<%= link_to 'Login', new_user_path , action: :new %>-->
 
 
 

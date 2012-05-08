@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-		
+
 <title>Doggy Grooming Store</title>
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon", "application" %>
+
+
+
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 
 
@@ -22,7 +25,7 @@
 </div>
 <div id="columns">
 <div id="side">
-	
+
 <% if @cart %>
 <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
 <%= render @cart %>
@@ -39,11 +42,12 @@
 
 
 
- <% if session[:user_id] %>
+ 
  <ul>
  <li><%= link_to 'Orders', orders_path %></li>
 <li><%= link_to 'Products', products_path %></li>
  <li><%= link_to 'Users', users_path %></li>
+</ul>
 
 
 
@@ -51,34 +55,30 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:3000/admin" data-text="Doggy Grooming">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </li></ul>
+</div>
 
 
-<!--<p class="notice">-->
-<!--<%= notice %></p>-->
 
-	
- <!--<%= button_to 'Logout', logout_path, method: :delete %>-->
-
- <!--<% else %> -->
-
-<!--<%= link_to 'Login', new_user_path , action: :new %>-->
 
 
 <div class="notice">
   <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    Signed in as <%= current_user.name %>. Not you?
+
+     <%= link_to "Sign out", destroy_user_session_path, :method =>:delete %>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "sign in", new_user_session_path %>
   <% end %>
 </div>
 
+
  
- <% end %>
-</div>
+
 <div id="main">
 <%= yield %>
 </div>
 </div>
 </body>
 </html>
+ 

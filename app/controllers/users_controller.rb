@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:email)
+    @users = User.order(:name)
     
     #added this line in devise 
     @users = User.all
@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -56,7 +54,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to store_url,
-          notice: "User #{@user.email}  signup successfully created." }
+          notice: "User #{@user.name}  signup successfully created." }
         format.json { render json: @user,
           status: :created, location: @user }
       else
@@ -66,6 +64,10 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  
+  
+  
   
   
   
@@ -79,7 +81,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to users_url,
-          notice: "User #{@user.email} was successfully updated." }
+          notice: "User #{@user.name} was successfully updated." }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

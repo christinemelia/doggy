@@ -1,4 +1,3 @@
-
 <%= form_for @user do |f| %>
 <% if @user.errors.any? %>
 <div id="error_explanation">
@@ -14,34 +13,32 @@ prohibited this user from being saved:</h2>
 <fieldset>
 <legend>Enter User Details</legend>
 
-	<div class="field">
-	    <%= f.label :email %><br />
-	    <%= f.text_field :email %>
-	  </div>
-	  
-	  <% if @current_method == "new" %>
-	    <div class="field">
-	      <%= f.label :password %><br />
-	      <%= f.password_field :password %>
-	    </div>
-	    <div class="field">
-	      <%= f.label :password_confirmation %><br />
-	      <%= f.password_field :password_confirmation %>
-	    </div>
-	
-	<% end %>
-	  <% for role in Role.find(:all) %>
-	    <div>
-	      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-	      <%= role.name %>
-	    </div>
-	  <% end %>
+<div class="field">
+<%= f.label :name %><br />
+<%= f.text_field :name %>
+</div>
+
+<% if @current_method == "new" %>
+<div class="field">
+<%= f.label :password %><br />
+<%= f.password_field :password %>
+</div>
+<div class="field">
+<%= f.label :password_confirmation %><br />
+<%= f.password_field :password_confirmation %>
+</div>
+
+<% end %>
+<% for role in Role.find(:all) %>
+<div>
+<%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+<%= role.name %>
+</div>
+<% end %>
 
 <%= f.submit %>
 </div>
 </fieldset>
 <% end %>
 </div>
-
-
 

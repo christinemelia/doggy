@@ -7,11 +7,14 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   # Access Current User
   
+  #load_and_authorize_resource
+  
+  
   #before_filter :authorize
  # protect_from_forgery
   
 
-      
+  
 
   private
 

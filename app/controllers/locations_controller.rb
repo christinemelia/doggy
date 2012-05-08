@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
   
   before_filter :authenticate_user!
   
+ # load_and_authorize_resource
+  
   def index
     if params[:search].present?
       @locations = Location.near(params[:search], 50, {:order => :distance, :units =>:km})

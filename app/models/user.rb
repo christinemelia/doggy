@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 has_and_belongs_to_many :roles
 #belongs_to :role
        
+    
   
   
   # Include default devise modules. Others available are:
@@ -13,17 +14,26 @@ has_and_belongs_to_many :roles
          
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :password, :password_confirmation, :remember_me, :role_ids
-  
-  def role?(role)
-      return !!self.roles.find_by_name(role.to_s.camelize)
- end
- 
+  attr_accessible :name, :email,:password, :password_confirmation, :remember_me, :role_ids, :roles
 
+ 
+  
+ 
+ # def role?(role)
+ #      return !!self.roles.find_by_name(role.to_s.camelize)
+  #end
+
+  def role?(role)
+     return !!self.roles.find_by_name(role.to_s)
+   end
+   
+   
+  
+ 
 #validates :name, presence: true, uniqueness: true
 #has_secure_password
 
-after_destroy :ensure_an_admin_remains
+after_destroy :ensure_an_Admin_remains
 
 
 
@@ -36,11 +46,11 @@ after_destroy :ensure_an_admin_remains
 
 
   private
-    def ensure_an_admin_remains
+    def ensure_an_Admin_remains
         if User.count.zero?
           raise "Can't delete last user"
-          end
-      end
+    end
+end
 end
 
 

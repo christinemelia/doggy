@@ -1,12 +1,16 @@
 
   Doggy::Application.routes.draw do
     
-    devise_for :users, :controllers => { :registrations => "users/registrations" }
-      
-      
-      
-   resources :users
+    
+      # devise_for :users,  :controllers => { :registrations => "users" }
 
+          # devise_for :users, :path_names => { :sign_up => "register" }
+           devise_for :users, :path_names => { :sign_in => "sign_in", :sign_out => "sign_out", :sign_up => "register" }
+
+            resources :users
+        
+            
+      
     # add another lines as you need...
    
 
