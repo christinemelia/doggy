@@ -28,6 +28,15 @@ has_and_belongs_to_many :roles
    end
    
    
+   
+   before_create :setup_role
+   private
+   def setup_role
+     if self.role_ids.empty?
+       self.role_ids = [3]
+     end
+   end
+   
   
  
 #validates :name, presence: true, uniqueness: true

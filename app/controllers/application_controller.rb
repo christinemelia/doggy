@@ -2,9 +2,12 @@
 
 class ApplicationController < ActionController::Base
   
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to store_url, :alert => exception.message
+    end
   
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show, :index]
   # Access Current User
   
   #load_and_authorize_resource

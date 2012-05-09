@@ -3,9 +3,9 @@ class LocationsController < ApplicationController
   # GET /locations.json
     #skip_before_filter :authorize, only: [:destroy,:edit,:update,]
   
-  before_filter :authenticate_user!
+    before_filter :authenticate_user!, :except => [:show, :index]
   
- # load_and_authorize_resource
+ load_and_authorize_resource
   
   def index
     if params[:search].present?

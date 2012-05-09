@@ -1,4 +1,7 @@
 <h1>Welcome</h1>
+
+<% if can? :show, @index %>
+
 It's <%= Time.now %>
 We have <%= pluralize(@total_orders, "order") %>.
 

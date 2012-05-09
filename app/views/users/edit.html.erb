@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 
+
+<% if can? :show, @user %>
 <%= link_to 'Show', @user %> |
+<%end%>
 <%= link_to 'Back', users_path %>

@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
+<% if can? :show, @line_item %>
 <%= link_to 'Show', @line_item %> |
+<%end%>
 <%= link_to 'Back', line_items_path %>

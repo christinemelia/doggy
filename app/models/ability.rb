@@ -2,24 +2,71 @@ class Ability
   include CanCan::Ability
 
     def initialize(user)
-        user ||= User.new # guest user
+        user ||= User.new # guest user(not logged in or signed up)
 
         if user.role? :Admin
           can :manage, :all
-        elsif user.role? :Groomer
-          can :manage, :all
+          
+          elsif user.role? :Groomer
+              can :manage, :all
+              
+              elsif user.role? :Customer
+                
+          can [:show, :index, :edit, :create, :update, :destroy], [Cart]
+          can [:show, :index, :edit, :create, :update], [Location]
+          can [:show, :index, :create, :edit, :update], [LineItem]
+          can [:show, :index,], [Product]
+          can [:edit, :create, :update],[Order]
+          cannot [:index, :show], [User]
+          can [:edit ,:create,:destroy], [User]
+         
+          
+          
+    
+      #  elsif user.role? :Customer
+       #   can :manage, :all
+          
+        end
+      end 
+    end 
+    
+    
+    
+    
+   # can [:edit :create :update :destroy], Cart
+   # can [:edit :create :update :destroy], Locations
+    #can [:edit :create :update :destroy], Line_Items
+   # can [:edit :create :update :destroy], Locations
+   # can [:edit :create :update :destroy], Orders
+   # can [:edit :create :update :destroy], Products
+    #can [:edit :create :update :destroy], Sessions
+   # can [:edit :create :update :destroy], Uers
+    
+          
+          
+          
+       # elsif user.role? :Groomer
+        #  can :manage, :[Application,Locations,Carts,Store,Orders]
           
           
          # [Products, Location, Cart, Store, Order]
-        elsif user.role? :Customer
-          can :manage, :all
-          #can :read, [Product, Location, Cart, Store]
+      #  elsif user.role? :Customer
+         # can :manage, :all
+        #  can :create,:[Cart, Orders, Locations]
+        #  can :read,:[Products, Locations, Carts, Application]
         #else 
          # can :update,[Cart, Location]
-    end
- end
-end
+   # end
+# end
+#end
               
+
+
+ 
+
+
+
+
 
     # Define abilities for the passed in user here. For example:
     #

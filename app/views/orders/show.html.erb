@@ -66,6 +66,7 @@
 
 
 
-
+<% if can? :edit, @order %>
 <%= link_to 'Edit', edit_order_path(@order) %> |
+<%end%>
 <%= link_to 'Back', orders_path %>

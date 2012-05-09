@@ -10,6 +10,7 @@
   <%= @line_item.cart_id %>
 </p>
 
-
+<% if can? :edit, @line_item %>
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%end%>
 <%= link_to 'Back', line_items_path %>

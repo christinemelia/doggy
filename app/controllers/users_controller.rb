@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  
+  before_filter :authenticate_user!
+
+      
+   load_and_authorize_resource
+  
+  
+  
   def index
     @users = User.order(:name)
     

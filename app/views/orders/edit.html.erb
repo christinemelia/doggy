@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 
+
+<% if can? :show, @order %>
 <%= link_to 'Show', @order %> |
+<%end%>
 <%= link_to 'Back', orders_path %>
