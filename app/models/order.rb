@@ -12,16 +12,18 @@ class Order < ActiveRecord::Base
    attr_accessor :card_number, :card_verification, :card_expires_on
    
   
-  #validations 
-  validates :first_name,:last_name, :address, :email, :pay_type, :grooming_date, :grooming_time, :presence => true
-  validates :pay_type, :inclusion => PAYMENT_TYPES
   
+  
+     #validations
+     validates :first_name,:last_name, :address, :email, :pay_type, :grooming_date, :grooming_time, :presence => true
+     validates :pay_type, :inclusion => PAYMENT_TYPES
 
-  # Credit Card Validation
-  validate :validate_card, :on =>:create
-  # CC validation method taken from Ryan Bate's Railscast #145
-    # checks the CC info and adds any error messages to the order model's error messages.
-    
+
+     # Credit Card Validation
+     validate :validate_card, :on =>:create
+     # CC validation method taken from Ryan Bate's Railscast #145
+       # checks the CC info and adds any error messages to the order model's error messages.
+  
     
     
     #part of active merchnt gems functionality 
@@ -44,7 +46,8 @@ class Order < ActiveRecord::Base
          end
        end
      end
-    
+     
+      
   
 # active merchant fnctionality re written to integrate with my application 
   def purchase
@@ -61,6 +64,11 @@ class Order < ActiveRecord::Base
   def price_in_cents
     (total_price*100).round
   end
+
+
+
+
+
 
 
 
@@ -162,9 +170,9 @@ end
 
 
   
+
+
   
-  
-  
+
+
    
-   
-  

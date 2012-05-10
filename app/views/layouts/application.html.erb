@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Doggy Grooming Store</title>
+<title>Doggy Grooming Professional Services</title>
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon", "application" %>
 
@@ -19,7 +19,7 @@
 <body class="<%= controller.controller_name %>">
 <div id="banner">
 <%= image_tag ("logo.png") %>
-<%= @page_title || "Dog Grooming Services" %>
+<%= @page_title || "Doggy Grooming Professional Services" %>
 
 
 </div>
@@ -36,20 +36,28 @@
 
 <ul>
  <li><a href="http://www..../contact">Contact DoggyGrooming</a></li>
- <li><a href="http://www..../contact">About DoggyGroming</a></li>
- <li> <%=link_to 'Locations', locations_path %></li>
- <li><%= facebook_like %></li>
- <li><%=link_to 'store#index', store_path %><li>
+ <li><a href="http://www..../contact">About DoggyGrooming</a></li>
+
+ <li> <%=button_to 'Locations', locations_path %></li>
+
+ <li><%=button_to 'Home', store_path %><li>
+	
+	<% if can? :show, @order %>
+ <li><%= button_to 'Orders', orders_path %></li>
+<%end%>
+
+<% if can? :index, @product %>
+<li><%= button_to 'Products', products_path %></li>
+<%end%>
+
+<% if can? :show, @user %>
+ <li><%= button_to 'Users', users_path %></li>
+<%end%>
 </ul>
 
+<ul>
+ <li><%= facebook_like %></li>
 
-
-
- 
- <ul>
- <li><%= link_to 'Orders', orders_path %></li>
-<li><%= link_to 'Products', products_path %></li>
- <li><%= link_to 'Users', users_path %></li>
 </ul>
 
 
@@ -68,10 +76,10 @@
   <% if user_signed_in? %>
     Signed in as <%= current_user.name %>. Not you?
 
-     <%= link_to "Sign out", destroy_user_session_path, :method =>:delete %>
+     <%= button_to "Sign out", destroy_user_session_path, :method =>:delete %>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or
-    <%= link_to "sign in", new_user_session_path %>
+    <%= button_to "Sign up", new_user_registration_path, :method =>:get %>
+    <%= button_to "sign in", new_user_session_path %>
   <% end %>
 </div>
 
@@ -82,6 +90,7 @@
 <%= yield %>
 </div>
 </div>
+
 </body>
 </html>
  

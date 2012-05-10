@@ -27,6 +27,9 @@
 
 
 
+
+
+
      # GET /orders/1
      # GET /orders/1.xml
      def show
@@ -52,9 +55,14 @@
        @order = Order.new
        respond_to do |format|
          format.html # new.html.erb
-         format.xml  { render :xml => @order }
+         format.xml { render :xml => @order }
        end
      end
+
+     
+     
+
+
 
 
 
@@ -133,25 +141,14 @@
         end 
        
           
-
-
-     
-
-     
-           
-           
-            
-       
-     
-     
-     
+              
      
      
   #     def create
    #      @order = current_cart.build_order(params[:order])
     #     @order.ip_address = request.remote_ip
     #     if @order.save
-    #       if @order.purchase
+  #       if @order.purchase
        #      render :action => "success"
           # else
             # render :action => "failure"
@@ -347,5 +344,23 @@
   
   # PUT /orders/1
   # PUT /orders/1.json
- 
+  
+  
+  
+  
+   
+
+
+
+
+
+
+       
+
+
+
+
+
+
+     
     

@@ -3,8 +3,8 @@
 class AdminController < ApplicationController
   before_filter :authenticate_user!
   
-  if user.role==Admin
-  
+  load_and_authorize_resource
+   
    #before_filter :authenticate_admin!
   def index
     @total_orders = Order.count
@@ -13,5 +13,7 @@ class AdminController < ApplicationController
   
 else 
   redirect_to store_url
-
 end
+
+
+end 

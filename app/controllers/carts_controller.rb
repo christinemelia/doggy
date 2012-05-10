@@ -4,6 +4,11 @@ class CartsController < ApplicationController
 before_filter :authenticate_user!, :except => [:show, :index]
 
 
+
+
+
+
+  
  #load_and_authorize_resource
   # GET /carts
   # GET /carts.json
@@ -87,7 +92,8 @@ before_filter :authenticate_user!, :except => [:show, :index]
     @cart.destroy
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_url }
+      format.html { redirect_to store_url ,
+      notice: 'Your cart is currently empty' }
       format.json { head :ok }
     end
   end

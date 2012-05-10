@@ -1,33 +1,48 @@
-<h1>locations</h1>
+<h1>Dog Grooming Locations</h1>
 
-<p>
+<!--<p>
   <strong>Address:</strong>
   <%= @location.address %>
 </p>
-<p>
-  <strong>Latitude:</strong>
+<p>-->
+<!--  <strong>Latitude:</strong>
   <%= @location.latitude %>
 </p>
 <p>
   <strong>Longitude:</strong>
   <%= @location.longitude %>
-</p>
+</p>-->
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
 
-<h3>Nearby locations</h3>
+
+
+<h2>Please click the New Location Link to enter Your address</h2>
+<p><%= link_to 'New Location', new_location_path %></p>
+
+
+
+
+<h3>Dog Grooming locations near you</h3>
 <ul>
 <% for location in @location.nearbys(10) %>
   <li><%= link_to location.address, location %> (<%= location.distance.to_f.round(2) %> miles)</li>
 <% end %>
-</ul>
+</ul>  
 
-<p>
+
+<p><% if can? :edit, @location %>
   <%= link_to "Edit", edit_location_path(@location) %> |
+<%end%>
+
+  <% if can? :destroy, @location %>
   <%= link_to "Destroy", @location, :confirm => 'Are you sure?', :method => :delete %> |
+<%end%>
+
+<% if can? :view, @location %>
   <%= link_to "View All", locations_path %>
 </p>
-
+<%end%>
 
 <!-- reference ryan bates geokit for rails railscast -->
 <!--adapted and re written with my own methods for my application, further help received from Brian Gillespie lecturer at nci  -->

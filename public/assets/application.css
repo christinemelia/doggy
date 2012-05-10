@@ -1,5 +1,20 @@
+
+
+
+
+	
+
+
+
+	
 #banner
-{background: #82CFFD;
+
+
+{  
+	background-color:#98B2FF;
+	background-image:url('FotoFlexer_Photo.jpg');
+	background-repeat: no-repeat;
+	background-position: right; 
 	padding:10px;border-width:5px;
 	border-style: solid;
 	border-color:#33A1DE;
@@ -8,12 +23,17 @@
 	color:#00009C;
 	text-align:center}
 	
+	
 #banner 
 img{float:left;
 	width: 5.0em;
-	height: 1.3em;
+	height: 1.3em
+}
+
 	
-	}
+
+	
+
 
 #notice
 {color:#000 !important;
@@ -30,20 +50,28 @@ img{float:left;
 	}
 
 #columns #main
-{margin-left:17em;
+
+{ 
+ 	margin-left:17em;
 	border-radius:15px;
 	padding:1em;
-	background:#CAE1FF}
+	background-image:url('paw_print.gif');
+	background-repeat:repeat;
+	}
 	
 	
-#columns #side
+#columns #side 
 {float:left;
+    
 	padding:1em 2em;
 	width:13em;
 	border-radius:15px;
 	border-color:#33A1DE;
-	background:#0404B4}
+	background:#0404B4
 	
+	}
+	
+
 	
 #columns #side form,#columns #side div
 {display:inline}
@@ -100,10 +128,14 @@ ul li a{color:#81F7F3;font-size:small}.carts .cart_title,
 	
 	
 #store 
+
+
 h1{font:150% sans-serif;
 	color:#228;
 	border-bottom:3px dotted #77d;
-	border-radius:15px}
+	border-radius:15px;
+	}
+	
 	
 	
 #product_list 
@@ -138,7 +170,20 @@ table tr td{padding:5px;vertical-align:top}
 #store .entry .price_line{clear:both;margin-bottom:0.5em}
 #store .entry .add_to_cart{position:relative}
 #store .entry .price{color:#44a;font-weight:bold;margin-right:2em}
-body{background-color:#3366FF;border-radius:15px;font-family:verdana, arial, helvetica, sans-serif;font-size:13px;line-height:18px}
+
+
+
+body{
+	
+	
+	
+	background-image:url('doggie-background.png');
+	background-repeat:repeat;
+	background-color:#3366FF;
+	border-radius:15px;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:13px;line-height:18px
+	}
 p,ol,ul,td{font-family:verdana, arial, helvetica, sans-serif;font-size:13px;line-height:18px}
 pre{background-color:#eee;padding:10px;font-size:11px}
 a{color:#000}
@@ -197,4 +242,6 @@ p form,p div,div.price_line form,div.price_line div{display:inline}
 .store .entry h3{font-size:120%;font-family:sans-serif;margin-left:100px;margin-top:0;margin-bottom:2px;color:#227}
 .store .entry p,.store .entry div.price_line{margin-left:100px;margin-top:0.5em;margin-bottom:0.8em}
 .store .entry .price{color:#44a;font-weight:bold;margin-right:3e}
+
+
 	
