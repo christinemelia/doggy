@@ -1,5 +1,15 @@
 <h1>Dog Grooming Locations</h1>
 
+<%= form_tag locations_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+<% end %>
+
+
+
+
+
 <table>
   <tr>
     <th>Address</th>
@@ -13,12 +23,11 @@
 <% @locations.each do |location| %>
   <tr>
     <td><%= location.address %></td>
-   <!-- <td><%= location.latitude %></td>
-    <td><%= location.longitude %></td>-->
+   <td><%= location.latitude %></td>
+    <td><%= location.longitude %></td>
 
 
 	
-
 
 	<% if can? :show, @location %>
     <td><%= link_to 'Show', location %></td>

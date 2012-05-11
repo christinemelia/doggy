@@ -36,6 +36,11 @@ class Cart < ActiveRecord::Base
   
   
   
+  
+   
+
+  
+  
 #  def paypal_encrypted(return_url,notify_url)
    # values = {
     #  :business => 'biz_1329172524_biz@gmail.com',

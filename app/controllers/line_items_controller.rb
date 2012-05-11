@@ -7,6 +7,8 @@ class LineItemsController < ApplicationController
     
     load_and_authorize_resource
 
+
+
   # GET /line_items
   # GET /line_items.json
   def index
@@ -17,6 +19,11 @@ class LineItemsController < ApplicationController
       format.json { render json: @line_items }
     end
   end
+  
+  
+  
+  
+  
 
   # GET /line_items/1
   # GET /line_items/1.json
@@ -28,6 +35,11 @@ class LineItemsController < ApplicationController
       format.json { render json: @line_item }
     end
   end
+  
+  
+  
+  
+  
 
   # GET /line_items/new
   # GET /line_items/new.json
@@ -40,10 +52,16 @@ class LineItemsController < ApplicationController
     end
   end
 
+
+
+
+
   # GET /line_items/1/edit
   def edit
     @line_item = LineItem.find(params[:id])
   end
+  
+  
 
   # POST /line_items
   # POST /line_items.json
@@ -54,6 +72,9 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_url }
+        
+        #making my cart  controller respond to ajax / javascript 
+        #Assign the current item to be the line item in question
         format.js   { @current_item = @line_item }
         format.json { render json: @line_item,
           status: :created, location: @line_item }
@@ -64,6 +85,12 @@ class LineItemsController < ApplicationController
       end
     end
   end
+  
+  
+  
+  
+  
+  
 
   # PUT /line_items/1
   # PUT /line_items/1.json

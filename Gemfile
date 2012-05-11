@@ -74,6 +74,10 @@ gem  'cancan'
 gem 'devise'
 #:git => 'git://github.com/plataformatec/devise.git'
 
+
+#gem for sending mail through smtp ssl connections 
+gem 'tlsmail'  
+
 # Gems used only for assets and not required
 # in production environments by default.
 # group :assets do
