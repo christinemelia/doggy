@@ -4,53 +4,21 @@
   <b>First Name:</b>
   <%= @order.first_name %>
 </p>
-
-
 <p>
   <b>Last Name:</b>
   <%= @order.last_name %>
 </p>
-
-
-
 <p>
   <b>Address:</b>
   <%= @order.address %>
 </p>
 
-<p>
   <b>Email:</b>
   <%= @order.email %>
-</p>
-
-<p>
 <b>Payment Type:</b>
 <%= @order.pay_type %>
-</p>
-
-<p>
 <b>Card Type:</b>
 <%= @order.card_type%>
-</p>
-
-<p>
-<b>Card Number:</b>
-<%= @order.card_number%>
-</p>
-
-<p>
-<b>Card verification:</b>
-<%= @order.card_verification%>
-</p>
-
-
-<p>
-<b>Card Expiration Date:</b>
-<%= @order.card_expires_on%>
-</p>
-
-
-
 
 <p>
   <b>Date for Grooming:</b>
@@ -61,9 +29,6 @@
   <b>Time for Grooming:</b>
   <%= @order.grooming_time %>
 </p>
-
-
-
 
 
 <% if can? :edit, @order %>

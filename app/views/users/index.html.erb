@@ -5,16 +5,14 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Password </th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Email</th>
+    
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
-    <td><%= user.password %></td>
+    <td><%= user.email %></td>
 
 
 
@@ -33,10 +31,12 @@
 <%end%>
   </tr>
 </table>
-<br/>
+<br>
+
 
 
 <% if can? :create, @user%>
 <%= link_to 'New User', new_user_path %>
+</br>
 <%end%>
 <%end%>

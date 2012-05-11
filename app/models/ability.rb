@@ -13,7 +13,7 @@ class Ability
               elsif user.role? :Customer
                 
           can [:show, :index, :edit, :create, :update, :destroy], [Cart]
-          can [:show, :create, :update, :view, :new ], [Location]
+          can [:index, :show, :create, :view, :new ], [Location]
           can [:show, :index, :create, :edit, :update], [LineItem]
           can [:show, :index,], [Product]
           can [:edit, :create, :update],[Order]

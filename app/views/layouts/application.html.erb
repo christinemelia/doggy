@@ -38,21 +38,22 @@
  <li><a href="http://www..../contact">Contact DoggyGrooming</a></li>
  <li><a href="http://www..../contact">About DoggyGrooming</a></li>
 
- <li> <%=button_to 'Locations', locations_path %></li>
+
+ <li> <%=link_to 'Locations', locations_path %></li>
 
  <li><%=button_to 'Home', store_path %><li>
-	
-	<% if can? :show, @order %>
- <li><%= button_to 'Orders', orders_path %></li>
-<%end%>
+
+<% if can? :show, @order %>
+ <li><%= link_to 'Orders', orders_path %></li>
+<% end %>
 
 <% if can? :index, @product %>
-<li><%= button_to 'Products', products_path %></li>
-<%end%>
+<li><%= link_to 'Products', products_path %></li>
+<% end %>
 
 <% if can? :show, @user %>
- <li><%= button_to 'Users', users_path %></li>
-<%end%>
+ <li><%= link_to 'Users', users_path %></li>
+<% end %>
 </ul>
 
 <ul>
@@ -93,4 +94,3 @@
 
 </body>
 </html>
- 

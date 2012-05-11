@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
   
   
-  before_filter :authenticate_user!, :except => [:show, :index]
+ # before_filter :authenticate_user!, :except => [:show, :index]
   # Access Current User
   
   #load_and_authorize_resource

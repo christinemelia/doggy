@@ -7,9 +7,6 @@
 <th>Email</th>
 <th>Pay type</th>
 <th>Card type</th>
-<th>Card Number</th>
-<th>Card Verification</th>
-<th>Card Expires On</th>
 <th>Grooming Date</th>
 <th>Grooming Time</th>
 
@@ -22,9 +19,6 @@
 <td><%= order.email %></td>
 <td><%= order.pay_type %></td>
 <td><%= order.card_type %></td>
-<td><%= order.card_number %></td>
-<td><%= order.card_verification %></td>
-<td><%= order.card_expires_on %></td>
 <td><%= order.grooming_date %></td>
 <td><%= order.grooming_time %></td>
 
@@ -43,7 +37,7 @@
 method: :delete %></td>
 <%end%>
 
-<td><%= link_to "Continue Shopping", store_url%></td>
+
 </tr>
 <% end %>
 </table>
