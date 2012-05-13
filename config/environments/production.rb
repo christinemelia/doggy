@@ -66,6 +66,33 @@ Doggy::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  
+  
+  
+  
+  config.action_mailer.raise_delivery_errors = false
+
+
+
+    require 'tlsmail'       
+    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+    ActionMailer::Base.delivery_method = :smtp   
+    ActionMailer::Base.perform_deliveries = true   
+    ActionMailer::Base.raise_delivery_errors = true   
+    ActionMailer::Base.smtp_settings = {   
+    :enable_starttls_auto => true,     
+    :address            => 'smtp.gmail.com',   
+    :port               => 587,   
+    :tls                  => true,   
+    :domain             => 'christinemelia@gmail.com',    
+    :authentication     => :plain,   
+    :user_name          => 'christinemelia@gmail.com',   
+    :password           => 'baxter2011' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+    }   
+
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }   
+
+  
 
   # Enable threaded mode
   # config.threadsafe!
@@ -76,6 +103,11 @@ Doggy::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.gem "RedCloth"
+  
+  config.gem "activemerchant", :lib => "active_merchant"
+
   
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :production

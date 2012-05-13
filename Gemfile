@@ -75,6 +75,11 @@ gem 'devise'
 #:git => 'git://github.com/plataformatec/devise.git'
 
 
+
+#gem for editing my static pages design 
+
+gem 'RedCloth' 
+
 #gem for sending mail through smtp ssl connections 
 gem 'tlsmail'  
 

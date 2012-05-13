@@ -2,6 +2,7 @@
   Doggy::Application.routes.draw do
     
     
+
       # devise_for :users, :controllers => { :registrations => "users" }
 
           # devise_for :users, :path_names => { :sign_up => "register" }
@@ -36,6 +37,7 @@
    resources :locations
    
    resources :orders
+   resources :pages
    resources :line_items
    resources :carts
    get "store/index"
@@ -43,9 +45,21 @@
      get :who_bought, :on =>:member
    end
    
+   
+   
+   resources :pages 
+
+    # match '/(:permalink)' => 'pages#show'
    # get "paypal_express/checkout"
-   # get "paypal_express/review"
+   
+   match '/(:permalink)',:constraints => { :permalink => /.+/ },:controller => 'pages', :action => 'show', :as => 'my_page'
+ #'users#show'
  
+  # :constraints  => { :permalink => /.+/ }
+  # :constraints => { :permalink => /[a-zA-Z0-9\-_]*/ },
+  # '/:id
+   # get "paypal_express/review"
+# :controller => 'pages', :action => 'show' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -105,5 +119,8 @@
   # match ':controller(/:action(/:id(.:format)))'
   # setting the store index to store
  root to: 'store#index', as: 'store'
+ 
+ 
+ 
   # ...
 end

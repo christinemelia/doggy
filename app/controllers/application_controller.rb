@@ -2,11 +2,15 @@
 
 class ApplicationController < ActionController::Base
   
+  helper :all # include all helpers, all the time
+  
   rescue_from CanCan::AccessDenied do |exception|
       redirect_to store_url, :alert => exception.message
     end
   
   
+  
+
  # before_filter :authenticate_user!, :except => [:show, :index]
   # Access Current User
   

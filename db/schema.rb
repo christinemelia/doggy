@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504144303) do
+ActiveRecord::Schema.define(:version => 20120513180714) do
 
   create_table "appointments", :force => true do |t|
     t.string   "date"
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(:version => 20120504144303) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "cart_id"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payment_notifications", :force => true do |t|

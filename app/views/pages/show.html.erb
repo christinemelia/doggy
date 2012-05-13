@@ -1,0 +1,14 @@
+<b>
+<p>
+  <%=title @page.name %>
+</p>
+</b>
+
+
+
+</p>
+  <%= sanitize(RedCloth.new(@page.content, [:filter_html, :filter_styles]).to_html) %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

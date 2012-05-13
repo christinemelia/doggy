@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.new
     #added this line with devise 
     @current_method = "new"
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -62,8 +62,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
+        sign_in @user
         format.html { redirect_to store_url,
-          notice: "User #{@user.name}  signup successfully created." }
+          notice: "User #{@user.name}  welcome to Doggy Grooming signup successfully created." }
         format.json { render json: @user,
           status: :created, location: @user }
       else
@@ -77,7 +78,8 @@ class UsersController < ApplicationController
   
   
   
-  
+   
+
   
   
 

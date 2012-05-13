@@ -2,7 +2,11 @@
 <html>
 <head>
 
+
+
+
 <title>Doggy Grooming Professional Services</title>
+
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon", "application" %>
 
@@ -35,8 +39,12 @@
 
 
 <ul>
- <li><a href="http://www..../contact">Contact DoggyGrooming</a></li>
- <li><a href="http://www..../contact">About DoggyGrooming</a></li>
+	
+ <li><%=link_to 'Contact Us', my_page_path('contact') %></li>
+
+<li><%= link_to 'About Us', my_page_path('About') %></li>
+	
+	
 
 
  <li> <%=link_to 'Locations', locations_path %></li>
