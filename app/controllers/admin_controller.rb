@@ -10,6 +10,7 @@ class AdminController < ApplicationController
     @total_orders = Order.count
    
   end
+end 
 
 
 
