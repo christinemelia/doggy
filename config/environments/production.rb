@@ -90,7 +90,7 @@ Doggy::Application.configure do
     :password           => 'baxter2011' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
     }   
 
-    config.action_mailer.default_url_options = { :host => 'localhost:3000' }   
+    config.action_mailer.default_url_options = { :host => '"Doggyapp.heroku.com",' }   
 
   
 

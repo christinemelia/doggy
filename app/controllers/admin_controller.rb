@@ -10,10 +10,7 @@ class AdminController < ApplicationController
     @total_orders = Order.count
    
   end
-  
-else 
-  redirect_to store_url
-end
 
 
-end 
+
+
