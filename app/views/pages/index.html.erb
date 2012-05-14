@@ -15,13 +15,21 @@
     <td><%= page.name %></td>
     <td><%= page.permalink %></td>
     <td><%= page.content %></td>
+
+<% if can? :show, @page %>
     <td><%= link_to 'Show', page %></td>
+<% end %>
+<% if can? :edit, @page %>
     <td><%= link_to 'Edit', edit_page_path(page) %></td>
+<% end %>
+<% if can? :delete, @page %>
     <td><%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %></td>
+<% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if can? :create, @page %>
 <%= link_to 'New Page', new_page_path %>
+<% end %>

@@ -1,3 +1,27 @@
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m") %>
+  </h2>
+  <%= calendar_for @order, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+    <%= calendar.day(:day_method =>:grooming_date) do |date, orderss| %>
+      <%= date.day %>
+      <ul>
+	
+	<% for order in orderss %>
+          <li><%= link_to h(order.name), order %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
 <h1>Listing orders</h1>
 <table>
 <tr>
@@ -9,6 +33,8 @@
 <th>Card type</th>
 <th>Grooming Date</th>
 <th>Grooming Time</th>
+
+
 
 </tr>
 <% @orders.each do |order| %>

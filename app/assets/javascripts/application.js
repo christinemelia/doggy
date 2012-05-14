@@ -34,7 +34,7 @@ $(function ()
 		ampm: true,
 		hourMin: 8,
 		hourMax: 16,
-		timeFormat: 'h:m'
+		timeFormat: 'hh:mm'
 		
 	}
 	);

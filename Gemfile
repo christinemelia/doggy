@@ -40,7 +40,8 @@ gem 'paypal-recurring'
 gem 'jquery_datepicker'
 # for my attempted date picker 
 #gem 'calendar_date_select'
-#gem 'table_builder',  :git => 'git://github.com/p8/table_builder.git'
+gem 'table_builder'
+gem "watu_table_builder", :require => "table_builder"
 #gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test'
 
 

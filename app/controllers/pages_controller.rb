@@ -1,6 +1,14 @@
 class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
+  
+  
+  
+  before_filter :authenticate_user!
+
+  load_and_authorize_resource
+  
+  
   def index
     @pages = Page.all
 

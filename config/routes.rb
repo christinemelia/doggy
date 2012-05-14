@@ -10,6 +10,8 @@
 
             resources :users
         
+              # setting the store index to store
+             root to: 'store#index', as: 'store'
             
       
     # add another lines as you need...
@@ -45,15 +47,15 @@
      get :who_bought, :on =>:member
    end
    
-   
-   
-   resources :pages 
+  
+  
 
     # match '/(:permalink)' => 'pages#show'
    # get "paypal_express/checkout"
    
-   match '/(:permalink)',:constraints => { :permalink => /.+/ },:controller => 'pages', :action => 'show', :as => 'my_page'
+   match '/:permalink',:constraints => { :permalink => /.+/ },:controller => 'pages', :action => 'show', :as => 'my_page'
  #'users#show'
+ 
  
   # :constraints  => { :permalink => /.+/ }
   # :constraints => { :permalink => /[a-zA-Z0-9\-_]*/ },
@@ -117,8 +119,7 @@
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  # setting the store index to store
- root to: 'store#index', as: 'store'
+
  
  
  

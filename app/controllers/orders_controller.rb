@@ -13,12 +13,12 @@
      
      
   
-     
-     
+      
      
      def index
+       @orderss = Order.find(:all)
+       @date = params[:month] ? Date.parse(params[:month]) : Date.today
        @orders = Order.paginate :page=>params[:page], :order=>'created_at desc',:per_page => 10
-
        respond_to do |format|
          format.html # index.html.erb
          format.xml  { render :xml => @orders }
