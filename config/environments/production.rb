@@ -19,7 +19,7 @@ Doggy::Application.configure do
       #   ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
       #   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
      # end
-  
+  config.assets.initialize_on_precompile = false
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -90,7 +90,7 @@ Doggy::Application.configure do
     :password           => 'baxter2011' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
     }   
 
-    config.action_mailer.default_url_options = { :host => '"Doggyapp.heroku.com",' }   
+    config.action_mailer.default_url_options = { :host => 'severe-moon-5298.herokuapp.com' }   
 
   
 
@@ -104,7 +104,6 @@ Doggy::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  config.gem "RedCloth"
   
   config.gem "activemerchant", :lib => "active_merchant"
 

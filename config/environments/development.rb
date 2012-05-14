@@ -81,7 +81,6 @@ Doggy::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  config.gem "RedCloth"
   
   config.gem "activemerchant", :lib => "active_merchant"
   
