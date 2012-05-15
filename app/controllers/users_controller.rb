@@ -64,7 +64,7 @@ class UsersController < ApplicationController
       if @user.save
         sign_in @user
         format.html { redirect_to store_url,
-          notice: "User #{@user.name}  welcome to Doggy Grooming signup successfully created." }
+          notice: "User #{@user.name}welcome to Doggy Grooming signup successfully created." }
         format.json { render json: @user,
           status: :created, location: @user }
       else

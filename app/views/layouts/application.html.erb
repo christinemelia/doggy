@@ -5,7 +5,7 @@
 
 
 
-<title>Doggy Grooming Professional Services</title>
+<title>Dog Grooming Professional Services</title>
 
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css","jquery-ui-timepicker-addon", "application" %>
@@ -22,7 +22,7 @@
 
 <body class="<%= controller.controller_name %>">
 <div id="banner">
-<%= image_tag ("logo.png") %>
+<%= image_tag ("Dog_grooming_transparent.png") %>
 <%= @page_title || "Doggy Grooming Professional Services" %>
 
 
@@ -39,21 +39,30 @@
 
 
 <ul>
+
 	
  <li><%=link_to 'Contact Us', my_page_path('contact') %></li>
 
 </br>
 
-<li><%= link_to 'About Us', my_page_path('about') %></li>
+
+
+<li><%= link_to 'About Us', my_page_path('About') %></li>
 	
 </br>	
+
+
 
  <li> <%=link_to 'Locations', locations_path %></li>
 </br>
 
+
+
  <li><%=link_to 'Home', store_path %><li>
 	
 </br>
+
+
 
 <% if can? :show, @order %>
  <li><%= link_to 'Orders', orders_path %></li>
@@ -61,17 +70,22 @@
 
 </br>
 
+
+
+
 <% if can? :index, @product %>
 <li><%= link_to 'Products', products_path %></li>
 <% end %>
 
 </br>
 
+
+
 <% if can? :show, @user %>
  <li><%= link_to 'Users', users_path %></li>
 <% end %>
-
 </br>
+
 </ul>
 
 
@@ -90,8 +104,9 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-like" data-href="http://severe-moon-5298.herokuapp.com" data-send="true" data-layout="button_count" data-width="300" data-show-faces="true"></div>
-
+<div class="fb-like" data-href="http://severe-moon-5298.herokuapp.com" data-send="true" data-layout="button_count" data-width="300" data-show-faces="true">
+	
+</div>
 
 
 <li class="tweeter_block">
@@ -105,8 +120,8 @@
 
 
 <div class="notice">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.name %>. Not you?
+  <% if user_signed_in? %> 
+Signed in as <%= current_user.name %>.Not you?
 
      <%= button_to "Sign out", destroy_user_session_path, :method =>:delete %>
   <% else %>

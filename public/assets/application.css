@@ -1,65 +1,4 @@
-#calendar table {
-  border-collapse: collapse;
-  width: 100%;
-}
 
-#calendar td,
-#calendar th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
-  font-size: 10px;
-  padding: 6px;
-  border: 1px solid #999;
-}
-
-#calendar th {
-  background: #DDD;
-  color: #666;
-  text-align: center;
-  width: 14.2857142857143%;
-}
-
-#calendar td {
-  background: #FFF;
-  color: #777;
-  height: 80px;
-  vertical-align: top;
-  font-size: 16px;
-}
-
-#calendar .notmonth {
-  color: #CCC;
-}
-
-#calendar #month {
-  margin: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-#calendar #month a, #calendar #month a:hover {
-  text-decoration: none;
-  padding: 0 10px;
-  color: #999;
-}
-
-#calendar .today {
-  background-color: #D7F2FF;
-}
-
-#calendar ul {
-  margin: 0;
-  margin-top: 5px;
-  padding: 0;
-  list-style: none;
-}
-
-#calendar li {
-  margin: 0;
-  padding: 0;
-  font-size: 11px;
-  text-align: center;
-}
 
 
 
@@ -106,7 +45,7 @@ img{float:left;
 	
 	
 #columns
-{background:#0080FF;
+{background:#9FB1FE;
 		border-radius:15px
 	}
 
@@ -128,7 +67,7 @@ img{float:left;
 	width:13em;
 	border-radius:15px;
 	border-color:#33A1DE;
-	background:#0404B4
+	background:#3D5FF5
 	
 	}
 	
@@ -155,7 +94,7 @@ ul{padding:0}
 #columns #side
  ul li{list-style:none}
 #columns #side 
-ul li a{color:#81F7F3;font-size:small}.carts .cart_title,
+ul li a{color:#81F7F3;font-size:large;text-shadow: 0.1em 0.1em 0.2em black}.carts .cart_title,
 #side #cart .cart_title{font:120% bold}.carts .item_price,.carts .total_line,
 #side #cart .item_price,
 #side #cart .total_line{text-align:right}.carts .total_line .total_cell,

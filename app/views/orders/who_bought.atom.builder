@@ -29,7 +29,7 @@ order.line_items.map(&:total_price).sum
 end
 end
 
-xhtml.p "Date selection #{order.purchased_on}"
+xhtml.p "Date selection #{order.grooming_date}"
 end
 
 xhtml.p "Paid by #{order.pay_type}"
