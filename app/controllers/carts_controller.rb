@@ -1,12 +1,9 @@
+# written by christine melia x03247376
+
 class CartsController < ApplicationController
     #skip_before_filter :authorize, only:[:create, :update, :destroy]
-    
+    #filter for main cart to index and show for all users regardless of permissions 
 before_filter :authenticate_user!, :except => [:show, :index]
-
-
-
-
-
 
   
  #load_and_authorize_resource

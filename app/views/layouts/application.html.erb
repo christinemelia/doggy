@@ -42,32 +42,55 @@
 	
  <li><%=link_to 'Contact Us', my_page_path('contact') %></li>
 
-<li><%= link_to 'About Us', my_page_path('About') %></li>
-	
-	
+</br>
 
+<li><%= link_to 'About Us', my_page_path('about') %></li>
+	
+</br>	
 
  <li> <%=link_to 'Locations', locations_path %></li>
+</br>
 
- <li><%=button_to 'Home', store_path %><li>
+ <li><%=link_to 'Home', store_path %><li>
+	
+</br>
 
 <% if can? :show, @order %>
  <li><%= link_to 'Orders', orders_path %></li>
 <% end %>
 
+</br>
+
 <% if can? :index, @product %>
 <li><%= link_to 'Products', products_path %></li>
 <% end %>
 
+</br>
+
 <% if can? :show, @user %>
  <li><%= link_to 'Users', users_path %></li>
 <% end %>
+
+</br>
 </ul>
 
-<ul>
- <li><%= facebook_like %></li>
 
-</ul>
+
+
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=371054002912427";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="http://severe-moon-5298.herokuapp.com" data-send="true" data-layout="button_count" data-width="300" data-show-faces="true"></div>
 
 
 

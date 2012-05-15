@@ -1,6 +1,8 @@
 # writen by christine melia reference to excerps from Agile web development with rails 4 th edition 
-
+# christine melia x03247376
 class ApplicationController < ActionController::Base
+  
+  
   
   helper :all # include all helpers, all the time
   

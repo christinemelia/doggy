@@ -34,7 +34,7 @@
 
 
    
-   
+ 
    resources :authentications
    resources :locations
    

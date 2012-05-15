@@ -102,7 +102,8 @@ gem 'uglifier'
 end
 
 
-
+#appointments gem 
+gem "appointments", "~> 1.3.3"
 
 # gem for thin server when deployed to heroku for production only 
 group :production do
