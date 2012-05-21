@@ -74,8 +74,7 @@
 
 
 
-
-    
+     
       # @order = Order.new(params[:order])
      #  @order.add_line_items_from_cart(current_cart)
 
@@ -107,7 +106,7 @@
      # POST /orders.xml
      def create
        @order = current_cart.build_order(params[:order])
-       ##@order.add_line_items_from_cart(current_cart)
+       #@order.add_line_items_from_cart(current_cart)
        @order.ip_address = request.remote_ip
 
         respond_to do |format|
@@ -119,8 +118,12 @@
                'Thank you your order has been paid for successfully .') }
                Cart.destroy(session[:cart_id])
                session[:cart_id] = nil
+               OrderNotifier.received(@order).deliver
+               
               else
-               format.html {  render :text => "failure"}
+             #    format.html {  render :text => "failure"}
+               format.html { redirect_to(store_url, :notice => 
+                'WE ARE SORRY SOMETHING HAS GONE WROMG WITH PAYPAL PLEASE TRY AGAIN SOON .') }
               end
             
 #            format.html { redirect_to(store_url, :notice => 

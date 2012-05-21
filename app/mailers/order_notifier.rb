@@ -8,9 +8,10 @@ class OrderNotifier < ActionMailer::Base
   #
 
 def received(order)
+  @greeting = "hi"
     @order = order
     mail to: order.email, subject: 'Dog Grooming Services Confirmation'
- end
+end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -21,5 +22,29 @@ def received(order)
  def paid(order)
     @order = order
     mail to: order.email, subject: 'Dog Grooming Services Order Paid'
-    end
 end
+
+  def shipped(order)
+
+    @order = order
+
+ 
+
+    mail to: order.email, subject: 'Doggy Grooming Professional Services Store Order Shipped'
+
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+

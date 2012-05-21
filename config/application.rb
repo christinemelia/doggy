@@ -23,10 +23,25 @@ module Doggy
     config.filter_parameters << :card_number << :card_verification
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-
+  
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+    config.action_mailer.default_url_options = { :host => '<http://gentle-frost-8013.herokuapp.com/>' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
+
+    ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :domain => '<christinemelia@gmail.com>',
+    :user_name => '<christinemelia@gnmail.com>',
+    :password => '<baxter2011>',
+    :enable_starttls_auto => true
+    }
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

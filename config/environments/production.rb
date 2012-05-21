@@ -21,7 +21,7 @@ Doggy::Application.configure do
      # end
   config.assets.initialize_on_precompile = false
   # Code is not reloaded between requests
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
